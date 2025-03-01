@@ -13,7 +13,7 @@
     <header>
       <div class="max-w-screen-2xl mx-auto flex justify-between items-center bg-white rounded-2xl p-5">
         <div class="left">
-          <img class="w-40 md:w-44 -mb-1" src="../assets/images/logo-full.svg" alt="logo" />
+          <a href="../index.html"> <img class="w-40 md:w-44 -mb-1" src="../assets/images/logo-full.svg" alt="logo" /></a>
         </div>
 
         <div class="right flex items-center gap-4">
@@ -28,8 +28,76 @@
 
     <!-- main section -->
     <div class="max-w-screen-2xl mx-auto mt-5">
-        <h2 class="text-center text-3xl font-bold uppercase text-gray-700 mb-5">Blogs</h2>
-      <main class=" p-4 bg-white rounded-2xl"></main>
+      <h2 class="text-center text-3xl font-bold uppercase text-gray-700 mb-5">Blogs</h2>
+      <main class="p-4 grid grid-cols-1 gap-6">
+        <div class="question bg-white p-5 rounded-lg">
+          <h2 class="font-semibold text-xl text-gray-800 pb-3 mb-3 border-b-2 border-dashed border-gray-300">What are the different ways to select an element in the DOM?</h2>
+          <pre class="text-base text-gray-700 font-sans text-wrap">
+DOM (Document Object Model) থেকে একটা এলিমেন্ট সিলেক্ট করার কয়েকটা সহজ উপায় নিচে দেওয়া হলো: 
+
+<b>ID দিয়ে:</b>
+যদি এলিমেন্টের একটা ইউনিক ID থাকে, তাহলে document.getElementById() ব্যবহার করা যায়। এটা সবচেয়ে দ্রুত উপায়।
+যেমন: document.getElementById("myElement")
+
+<b>ক্লাস (Class) দিয়ে:</b>
+যদি একাধিক এলিমেন্টের একই ক্লাস থাকে, তাহলে document.getElementsByClassName() ব্যবহার করা যায়। এটা একটা HTMLCollection রিটার্ন করে।
+যেমন: document.getElementsByClassName("myClass")
+
+<b>ট্যাগ নাম (Tag Name) দিয়ে:</b>
+যদি কোনো নির্দিষ্ট ট্যাগের সব এলিমেন্ট দরকার হয়, তাহলে document.getElementsByTagName() ব্যবহার করা যায়। এটাও একটা HTMLCollection রিটার্ন করে।
+যেমন: document.getElementsByTagName("p")
+
+<b>CSS সিলেক্টর (CSS Selector) দিয়ে:</b>
+document.querySelector() ব্যবহার করে প্রথম ম্যাচিং এলিমেন্টটা পাওয়া যায়।
+document.querySelectorAll() ব্যবহার করে সব ম্যাচিং এলিমেন্ট পাওয়া যায়। এটা একটা NodeList রিটার্ন করে।
+যেমন: document.querySelector("#myElement"), document.querySelectorAll(".myClass")
+          </pre>
+        </div>
+
+
+        <div class="question bg-white p-5 rounded-lg">
+          <h2 class="font-semibold text-xl text-gray-800 pb-3 mb-3 border-b-2 border-dashed border-gray-300">What is the difference between innerHTML, innerText, and textContent ?</h2>
+          <pre class="text-base text-gray-700 font-sans text-wrap">
+innerHTML, innerText, এবং textContent হল JavaScript-এর প্রপার্টি যেগুলো DOM এলিমেন্টের কন্টেন্ট অ্যাক্সেস বা মডিফাই করতে ব্যবহৃত হয়। <br>এদের মধ্যে পার্থক্য নিচে বাংলায় ব্যাখ্যা করা হলো:
+
+<b>১. innerHTML:</b>
+এটি একটি এলিমেন্টের ভিতরের HTML কন্টেন্ট রিটার্ন করে বা সেট করে। এটি HTML ট্যাগসহ সব কন্টেন্ট দেখায়।
+
+<b>২. innerText:</b>
+এটি শুধুমাত্র একটি এলিমেন্টের ভিতরের টেক্সট কন্টেন্ট রিটার্ন করে বা সেট করে। এটি শুধুমাত্র ইউজারের কাছে ভিজিবল টেক্সট দেখায় এবং CSS স্টাইল (যেমন display: none) দ্বারা লুকানো কন্টেন্ট উপেক্ষা করে।
+
+
+<b>৩. textContent:</b>
+এটি একটি এলিমেন্টের ভিতরের সমস্ত টেক্সট কন্টেন্ট রিটার্ন করে বা সেট করে, যেখানে CSS স্টাইল বা লুকানো কন্টেন্ট উপেক্ষা করা হয় না। এটি শুধুমাত্র টেক্সট কন্টেন্ট দেখায়, HTML ট্যাগ দেখায় না।
+</pre>
+        </div>
+
+
+
+        <div class="question bg-white p-5 rounded-lg">
+          <h2 class="font-semibold text-xl text-gray-800 pb-3 mb-3 border-b-2 border-dashed border-gray-300">What is event delegation in the DOM?</h2>
+          <pre class="text-base text-gray-700 text-wrap font-sans">
+ইভেন্ট ডেলিগেশন হল DOM-এ ইভেন্ট হ্যান্ডলিং করার একটি টেকনিক, যেখানে একটি প্যারেন্ট এলিমেন্ট তার চাইল্ড এলিমেন্টগুলোর ইভেন্টগুলোকে হ্যান্ডল করে। এই পদ্ধতিতে, প্রতিটি চাইল্ড এলিমেন্টে আলাদা ইভেন্ট লিসেনার যোগ করার পরিবর্তে, শুধুমাত্র প্যারেন্ট এলিমেন্টে একটি ইভেন্ট লিসেনার যোগ করা হয়। যখন কোনো চাইল্ড এলিমেন্টে ইভেন্ট ঘটে, তখন সেই ইভেন্টটি প্যারেন্ট এলিমেন্টে "বাবল আপ" (bubble up) করে এবং প্যারেন্ট এলিমেন্টের ইভেন্ট লিসেনার দ্বারা হ্যান্ডল করা হয়।</pre>
+        </div>
+
+
+
+        <div class="question bg-white p-5 rounded-lg">
+          <h2 class="font-semibold text-xl text-gray-800 pb-3 mb-3 border-b-2 border-dashed border-gray-300"> What is event bubbling in the DOM?</h2>
+          <pre class="text-base text-gray-700 text-wrap font-sans">
+ ইভেন্ট বাবলিং হল DOM (Document Object Model)-এ একটি ঘটনা (event) প্রক্রিয়া, যেখানে কোনো এলিমেন্টে ঘটনা ঘটলে সেই ঘটনা উপরের দিকে DOM ট্রির মাধ্যমে তার প্যারেন্ট এলিমেন্টগুলিতে ছড়িয়ে পড়ে।
+
+উদাহরণস্বরূপ, ধরুন আপনি একটি বাটনে ক্লিক করেছেন। এই ক্লিক ইভেন্টটি প্রথমে বাটন এলিমেন্টে ট্রিগার হয়, তারপর এটি বাটনের প্যারেন্ট এলিমেন্টে (যেমন একটি div), তারপর সেই div-এর প্যারেন্ট এলিমেন্টে (যেমন body), এবং শেষ পর্যন্ত document অবজেক্টে ছড়িয়ে পড়ে। এই পুরো প্রক্রিয়াটিকেই ইভেন্ট বাবলিং বলা হয়।
+
+ইভেন্ট বাবলিং এর মাধ্যমে আপনি একটি প্যারেন্ট এলিমেন্টে ইভেন্ট লিসেনার যোগ করে তার সমস্ত চাইল্ড এলিমেন্টের ইভেন্ট হ্যান্ডেল করতে পারেন। এটি ইভেন্ট ডেলিগেশন (Event Delegation) নামেও পরিচিত।</pre>
+        </div>
+
+
+
+
+
+      </main>
     </div>
+    <script src="../utility.js"></script>
   </body>
 </html>

@@ -41,6 +41,7 @@ function taskComplete(event, id) {
       event.target.setAttribute("disabled", true);
 
       if (task_count === 1) {
+        alert("Board Updated Successfully...");
         alert("Congrats!! You have completed all the current tasks.");
       } else {
         alert("Board Updated Successfully...");
@@ -71,7 +72,6 @@ function taskComplete(event, id) {
 
 // delete-activity
 const activityList = document.getElementById("activity-list");
-
-document.getElementById("clear-activity").addEventListener("click", function (e) {
+document.getElementById("clear-activity").addEventListener("click", function () {
   activityList.innerHTML = "";
 });
