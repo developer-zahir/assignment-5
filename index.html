@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 5</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./assets/css/font.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="min-h-screen bg-gray-100 p-4 md:pt-6">
+    <!-- Header -->
+    <header>
+      <div class="max-w-screen-2xl mx-auto flex justify-between items-center bg-white rounded-2xl p-5">
+        <div class="left">
+          <img class="w-40 md:w-44 -mb-1" src="./assets/images/logo-full.svg" alt="logo" />
+        </div>
+
+        <div class="right flex items-center gap-4">
+          <div class="bg-[#f4f7ff] px-4 py-2 gap-2 rounded-full flex items-center align-middle">
+            <span><img class="w-6" src="./assets/images/checkbox.png" alt="check-box-icon" /></span>
+            <span id="completed-task-number" class="text-2xl font-semibold text-gray-800">23</span>
+          </div>
+
+          <div id="theme-changer">
+            <img class="cursor-pointer" src="./assets/images/theme-btn.png" alt="theme btn icon" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- main section -->
+    <div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row gap-5 mt-5">
+      <main class="lg:w-3/4 p-4 bg-white rounded-2xl">
+        <div class="top-section grid grid-cols-2 md:grid-cols-4 gap-4 pb-7 mb-7 border-b-2 border-dashed border-gray-200">
+          <!-- item 1 (first column) -->
+          <div class="bg-[#f4f7ff] flex-col sm:flex-row text-center sm:text-left flex gap-4 items-center p-4 rounded-xl order-2 md:order-1">
+            <div class="w-15 h-15 bg-white rounded-full flex justify-center items-center">
+              <img class="w-6" src="./assets/images/checkbox.png" alt="check icon" />
+            </div>
+            <div class="">
+              <p class="text-gray-700 text-md text-xl md:text-base">Task Assigned</p>
+              <span id="assign-task-number" class="text-gray-800 font-bold text-xl lg:text-3xl">05</span>
+            </div>
+          </div>
+
+          <!-- item 2 (middle, spans 2 columns) -->
+          <div class="bg-linear-to-r from-[#3c56fd] to-[#95a3f8] flex gap-4 items-center p-4 rounded-xl col-span-2 order-1 md:order-2">
+            <div class="flex justify-center items-center">
+              <img src="./assets/images/board.png" alt="check icon" />
+            </div>
+            <div class="">
+              <p class="text-white text-xl font-medium">Discover Something New <br />Today!</p>
+            </div>
+          </div>
+
+          <!-- item 3 (last column) -->
+          <div class="bg-[#f4f7ff] flex-col sm:flex-row text-center sm:text-left flex gap-4 items-center p-4 rounded-xl order-3">
+            <div class="w-15 h-15 bg-white rounded-full flex justify-center items-center">
+              <img class="w-6" src="./assets/images/calender.png" alt="calender icon" />
+            </div>
+            <div class="">
+              <p class="text-gray-700 text-xl" id="toDay-name">Wed,</p>
+              <span id="today-date" class="text-gray-800 font-bold text-lg md:text-xl">Jul 28 2025</span>
+            </div>
+          </div>
+        </div>
+        <!-- all task container -->
+        <div id="all-task-container" class="all-task-container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+      </main>
+      <aside class="lg:w-2/6 xl:w-1/4 bg-white rounded-2xl">
+        <div class="aside-top flex flex-col justify-center items-center gap-3 border-b-2 border-dashed border-blue-100 p-5 pb-7">
+          <div class="flex gap-3 justify-center items-center mt-3">
+            <figure><img src="./assets/images/activity.png" alt="activity icon" /></figure>
+            <h3 class="font-medium text-2xl text-[#00303c]">Activity Log</h3>
+          </div>
+
+          <button
+            id="clear-activity"
+            class="bg-[#3752FD] hover:opacity-95 cursor-pointer text-base text-white px-5 py-2 rounded-md transition-colors"
+          >
+            Clear History
+          </button>
+        </div>
+
+        <div id="activity-list" class="activity-history-container p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4"></div>
+      </aside>
+    </div>
+
+    <script src="./task-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
