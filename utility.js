@@ -9,9 +9,16 @@ document.getElementById("theme-changer").addEventListener("click", function (eve
   event.target.style.transition = "transform 0.5s ease";
 });
 
-// today date
 
-// Get the current date
+// today date
 const currentDate = new Date();
 document.getElementById("toDay-name").innerText = currentDate.toLocaleString("en-US", { weekday: "short" }) + " ,";
 document.getElementById("today-date").innerText = currentDate.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+
+
+// blog page link
+document.getElementById("discover-more").addEventListener("click", function () {
+    window.location.href = "./pages/blog.html";
+});
+
+
