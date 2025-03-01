@@ -61,7 +61,7 @@ function taskComplete(event, id) {
       activity_element.classList.add("bg-[#f4f7ff]", "p-4", "rounded-lg", "text-base", "text-gray-500", "border", "border-blue-200");
 
       activity_element.innerHTML = `
-        You have completed the task ${task.id} at <span id="time" class="text-gray-700">${new Date(task.completeAT).toLocaleTimeString()}</span>
+        You have completed the task ${task.title} at <span id="time" class="text-gray-700">${new Date(task.completeAT).toLocaleTimeString()}</span>
       `;
 
       activity_list.appendChild(activity_element);
