@@ -1,21 +1,3 @@
-// Random bg color changer function
-let rotateValue = 0;
-document.getElementById("theme-changer").addEventListener("click", function (event) {
-  const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-  document.body.style.backgroundColor = randomColor;
-
-  rotateValue += 360;
-  event.target.style.transform = `rotate(${rotateValue}deg)`;
-  event.target.style.transition = "transform 0.5s ease";
-});
-
-// today date
-
-// Get the current date
-const currentDate = new Date();
-document.getElementById("toDay-name").innerText = currentDate.toLocaleString("en-US", { weekday: "short" }) + " ,";
-document.getElementById("today-date").innerText = currentDate.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-
 // Main section code
 const all_task_container = document.getElementById("all-task-container");
 for (const task of all_task_data) {
@@ -24,7 +6,7 @@ for (const task of all_task_data) {
   taskElement.innerHTML = `
            <!-- task ${task.id} -->
             <div class="">
-              <p class="bg-white inline-block px-4 py-2 rounded-md text-base text-gray-800">${task.company}</p>
+              <p class="bg-white inline-block px-3 py-1 rounded-md text-base text-gray-800">${task.company}</p>
               <h3 class="text-2xl text-[#00303C] font-medium mt-4 mb-4">${task.title}</h3>
               <p class="bg-white p-4 rounded-lg text-base text-gray-500  border border-blue-100">
                 <span class="line-clamp-2">${task.description}</span>
@@ -45,11 +27,11 @@ for (const task of all_task_data) {
   all_task_container.appendChild(taskElement);
 }
 
-// Initialize the task count
+// assign task number
 let task_count = all_task_data.length;
 document.getElementById("assign-task-number").innerText = task_count < 10 ? `0${task_count}` : task_count;
 
-// Initialize the completed task count
+// completed task number
 let completedTaskNumber = 0;
 document.getElementById("completed-task-number").innerText = completedTaskNumber < 10 ? `0${completedTaskNumber}` : completedTaskNumber;
 
@@ -64,15 +46,13 @@ function taskComplete(event, id) {
         alert("Board Updated Successfully...");
       }
 
-      // Increment and decrement completed and assigned tasks
       completedTaskNumber += 1;
       task_count -= 1;
 
-      // Update the task count and completed task count in the DOM
       document.getElementById("assign-task-number").innerText = task_count < 10 ? `0${task_count}` : task_count;
       document.getElementById("completed-task-number").innerText = completedTaskNumber < 10 ? `0${completedTaskNumber}` : completedTaskNumber;
 
-      // Save the task completion time
+      // task completion time
       task.completeAT = Date.now();
 
       // Task activity dynamic
@@ -89,7 +69,7 @@ function taskComplete(event, id) {
   }
 }
 
-// clear-activity
+// delete-activity
 const activityList = document.getElementById("activity-list");
 
 document.getElementById("clear-activity").addEventListener("click", function (e) {
